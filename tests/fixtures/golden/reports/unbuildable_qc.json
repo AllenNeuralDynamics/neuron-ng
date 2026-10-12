@@ -1,0 +1,251 @@
+{
+ "schema_version": "1.2",
+ "standard_morph_version": "1.0.1",
+ "generated_at": "2026-10-12T18:19:55.912673+00:00",
+ "space": "image_space",
+ "morphology_kind": "merged",
+ "ccf_resolution": 10,
+ "policy_version": "golden",
+ "suite_name": null,
+ "requested_metrics": [
+  "single_root_node",
+  "soma_first_node",
+  "single_connected_component",
+  "branch_max_degree",
+  "edge_length",
+  "soma_child_distance",
+  "axon_origination",
+  "local_tortuosity"
+ ],
+ "input_ref": "swcs/unbuildable.swc",
+ "policy_thresholds": {
+  "required_columns": {},
+  "non_empty": {},
+  "castable_columns": {},
+  "unique_node_ids": {},
+  "valid_parent_references": {},
+  "acyclic": {},
+  "single_root_node": {},
+  "soma_first_node": {},
+  "single_connected_component": {},
+  "branch_max_degree": {
+   "max_children": 2
+  },
+  "edge_length": {
+   "max_length_um": 600.0
+  },
+  "soma_child_distance": {
+   "max_soma_child_to_soma_um": 5.0
+  },
+  "axon_origination": {
+   "max_axon_origin_to_soma_um": 5.0
+  },
+  "local_tortuosity": {
+   "tortuosity_threshold": 3.0
+  }
+ },
+ "integrity_results": [
+  {
+   "name": "required_columns",
+   "status": "pass",
+   "message": "All required SWC columns are present.",
+   "value": 0,
+   "value_label": "n_missing_columns",
+   "thresholds_used": {},
+   "measurements": {
+    "required_columns": [
+     "node_id",
+     "compartment",
+     "x",
+     "y",
+     "z",
+     "r",
+     "parent"
+    ],
+    "present_columns": [
+     "node_id",
+     "compartment",
+     "x",
+     "y",
+     "z",
+     "r",
+     "parent"
+    ],
+    "missing_columns": []
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_missing_columns": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.015249000171024818
+  },
+  {
+   "name": "non_empty",
+   "status": "pass",
+   "message": "SWC table has 2 node(s).",
+   "value": 2,
+   "value_label": "n_rows",
+   "thresholds_used": {},
+   "measurements": {
+    "n_rows": 2
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_rows": 2
+   },
+   "artifacts": [],
+   "runtime_ms": 0.004101000286027556
+  },
+  {
+   "name": "castable_columns",
+   "status": "fail",
+   "message": "1 value(s) cannot be cast to their required numeric type: {'x': 1}",
+   "value": 1,
+   "value_label": "n_uncastable_values",
+   "thresholds_used": {},
+   "measurements": {
+    "problems_by_column": {
+     "x": 1
+    },
+    "n_uncastable_values": 1
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_uncastable_values": 1
+   },
+   "artifacts": [],
+   "runtime_ms": 2.231737999863981
+  }
+ ],
+ "results": [
+  {
+   "name": "single_root_node",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "soma_first_node",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "single_connected_component",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "branch_max_degree",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "edge_length",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "soma_child_distance",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "axon_origination",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "local_tortuosity",
+   "status": "skipped",
+   "message": "not run: morphology could not be built (a BUILD-scope integrity check failed)",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  }
+ ],
+ "morphology_evaluated": false,
+ "summary": {
+  "n_metrics": 8,
+  "n_pass": 0,
+  "n_fail": 0,
+  "n_review": 0,
+  "n_error": 0,
+  "n_skipped": 8,
+  "overall_status": "incomplete"
+ },
+ "runtime_ms": 4.9233839999942575,
+ "integrity_ok": false,
+ "passed": false
+}

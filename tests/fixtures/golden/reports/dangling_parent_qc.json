@@ -1,0 +1,310 @@
+{
+ "schema_version": "1.2",
+ "standard_morph_version": "1.0.1",
+ "generated_at": "2026-10-12T18:19:55.876077+00:00",
+ "space": "image_space",
+ "morphology_kind": "merged",
+ "ccf_resolution": 10,
+ "policy_version": "golden",
+ "suite_name": null,
+ "requested_metrics": [
+  "single_root_node",
+  "soma_first_node",
+  "single_connected_component",
+  "branch_max_degree",
+  "edge_length",
+  "soma_child_distance",
+  "axon_origination",
+  "local_tortuosity"
+ ],
+ "input_ref": "swcs/dangling_parent.swc",
+ "policy_thresholds": {
+  "required_columns": {},
+  "non_empty": {},
+  "castable_columns": {},
+  "unique_node_ids": {},
+  "valid_parent_references": {},
+  "acyclic": {},
+  "single_root_node": {},
+  "soma_first_node": {},
+  "single_connected_component": {},
+  "branch_max_degree": {
+   "max_children": 2
+  },
+  "edge_length": {
+   "max_length_um": 600.0
+  },
+  "soma_child_distance": {
+   "max_soma_child_to_soma_um": 5.0
+  },
+  "axon_origination": {
+   "max_axon_origin_to_soma_um": 5.0
+  },
+  "local_tortuosity": {
+   "tortuosity_threshold": 3.0
+  }
+ },
+ "integrity_results": [
+  {
+   "name": "required_columns",
+   "status": "pass",
+   "message": "All required SWC columns are present.",
+   "value": 0,
+   "value_label": "n_missing_columns",
+   "thresholds_used": {},
+   "measurements": {
+    "required_columns": [
+     "node_id",
+     "compartment",
+     "x",
+     "y",
+     "z",
+     "r",
+     "parent"
+    ],
+    "present_columns": [
+     "node_id",
+     "compartment",
+     "x",
+     "y",
+     "z",
+     "r",
+     "parent"
+    ],
+    "missing_columns": []
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_missing_columns": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.016396999853895977
+  },
+  {
+   "name": "non_empty",
+   "status": "pass",
+   "message": "SWC table has 4 node(s).",
+   "value": 4,
+   "value_label": "n_rows",
+   "thresholds_used": {},
+   "measurements": {
+    "n_rows": 4
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_rows": 4
+   },
+   "artifacts": [],
+   "runtime_ms": 0.004375000116851879
+  },
+  {
+   "name": "castable_columns",
+   "status": "pass",
+   "message": "All column values cast cleanly to their required types.",
+   "value": 0,
+   "value_label": "n_uncastable_values",
+   "thresholds_used": {},
+   "measurements": {
+    "problems_by_column": {},
+    "n_uncastable_values": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_uncastable_values": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 2.3145810000642086
+  },
+  {
+   "name": "unique_node_ids",
+   "status": "pass",
+   "message": "All node ids are unique.",
+   "value": 0,
+   "value_label": "n_duplicate_ids",
+   "thresholds_used": {},
+   "measurements": {
+    "duplicate_ids": [],
+    "n_duplicate_ids": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_duplicate_ids": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.42146400028286735
+  },
+  {
+   "name": "valid_parent_references",
+   "status": "fail",
+   "message": "1 node(s) reference a parent id absent from the file (dangling edge); missing parent id(s): [99]",
+   "value": 1,
+   "value_label": "n_dangling_parents",
+   "thresholds_used": {},
+   "measurements": {
+    "n_dangling_parents": 1
+   },
+   "flagged_node_ids": [
+    6
+   ],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_dangling_parents": 1
+   },
+   "artifacts": [],
+   "runtime_ms": 0.1802220003810362
+  },
+  {
+   "name": "acyclic",
+   "status": "pass",
+   "message": "Parent chain is acyclic.",
+   "value": 0,
+   "value_label": "n_cyclic_nodes",
+   "thresholds_used": {},
+   "measurements": {
+    "n_cyclic_nodes": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_cyclic_nodes": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.13191200014261995
+  }
+ ],
+ "results": [
+  {
+   "name": "single_root_node",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "soma_first_node",
+   "status": "pass",
+   "message": "First node (id 1) is the soma.",
+   "value": true,
+   "value_label": "soma_is_first_node",
+   "thresholds_used": {},
+   "measurements": {
+    "first_node_id": 1,
+    "first_node_compartment": 1,
+    "soma_is_first_node": true
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0071380000008502975
+  },
+  {
+   "name": "single_connected_component",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "branch_max_degree",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "edge_length",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "soma_child_distance",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "axon_origination",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  },
+  {
+   "name": "local_tortuosity",
+   "status": "skipped",
+   "message": "not run: topology is unreliable (e.g. duplicate node ids); this metric requires valid topology",
+   "value": null,
+   "value_label": null,
+   "thresholds_used": {},
+   "measurements": {},
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.0
+  }
+ ],
+ "morphology_evaluated": true,
+ "summary": {
+  "n_metrics": 8,
+  "n_pass": 1,
+  "n_fail": 0,
+  "n_review": 0,
+  "n_error": 0,
+  "n_skipped": 7,
+  "overall_status": "incomplete"
+ },
+ "runtime_ms": 6.3108409999586,
+ "integrity_ok": false,
+ "passed": false
+}

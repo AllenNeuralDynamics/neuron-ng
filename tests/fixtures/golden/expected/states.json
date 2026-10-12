@@ -1,0 +1,1372 @@
+{
+ "scale_um": [
+  0.748,
+  0.748,
+  1.0
+ ],
+ "source": "s3://bucket/run",
+ "image_source": "zarr://s3://bucket/image.zarr",
+ "base_url": "https://neuroglancer.example.org",
+ "swcs": [
+  "N024-648434-CONSENSUS.swc",
+  "dangling_parent.swc",
+  "long_edge.swc",
+  "noncontiguous.swc",
+  "test_horta_swc.swc",
+  "unbuildable.swc"
+ ],
+ "written": {
+  "skeletons": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "annotations": [
+   "branch_max_degree",
+   "edge_length",
+   "soma_child_distance",
+   "axon_origination",
+   "local_tortuosity",
+   "valid_parent_references",
+   "single_root_node"
+  ]
+ },
+ "batch_state": {
+  "dimensions": {
+   "x": [
+    7.48e-07,
+    "m"
+   ],
+   "y": [
+    7.48e-07,
+    "m"
+   ],
+   "z": [
+    1e-06,
+    "m"
+   ]
+  },
+  "layers": [
+   {
+    "type": "image",
+    "name": "image",
+    "source": "zarr://s3://bucket/image.zarr"
+   },
+   {
+    "type": "segmentation",
+    "name": "neurons",
+    "source": "precomputed://s3://bucket/run/skeletons",
+    "segments": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5"
+    ],
+    "skeletonRendering": {
+     "shader": "void main() {\n  if (n_flags > 0.5) {\n    emitRGB(vec3(1.0, 0.0, 0.0));\n  } else {\n    emitDefault();\n  }\n}\n",
+     "mode2d": "lines_and_points",
+     "mode3d": "lines"
+    }
+   },
+   {
+    "type": "annotation",
+    "name": "branch_max_degree",
+    "source": "precomputed://s3://bucket/run/annotations/branch_max_degree",
+    "tab": "annotations",
+    "annotationColor": "#ffff00",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   },
+   {
+    "type": "annotation",
+    "name": "edge_length",
+    "source": "precomputed://s3://bucket/run/annotations/edge_length",
+    "tab": "annotations",
+    "annotationColor": "#00ffff",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   },
+   {
+    "type": "annotation",
+    "name": "soma_child_distance",
+    "source": "precomputed://s3://bucket/run/annotations/soma_child_distance",
+    "tab": "annotations",
+    "annotationColor": "#ff00ff",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   },
+   {
+    "type": "annotation",
+    "name": "axon_origination",
+    "source": "precomputed://s3://bucket/run/annotations/axon_origination",
+    "tab": "annotations",
+    "annotationColor": "#ff8000",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   },
+   {
+    "type": "annotation",
+    "name": "local_tortuosity",
+    "source": "precomputed://s3://bucket/run/annotations/local_tortuosity",
+    "tab": "annotations",
+    "annotationColor": "#00ff80",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   },
+   {
+    "type": "annotation",
+    "name": "valid_parent_references",
+    "source": "precomputed://s3://bucket/run/annotations/valid_parent_references",
+    "tab": "annotations",
+    "annotationColor": "#8080ff",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   },
+   {
+    "type": "annotation",
+    "name": "single_root_node",
+    "source": "precomputed://s3://bucket/run/annotations/single_root_node",
+    "tab": "annotations",
+    "annotationColor": "#ff0080",
+    "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+    "linkedSegmentationLayer": {
+     "neuron": "neurons"
+    },
+    "filterBySegmentation": [
+     "neuron"
+    ]
+   }
+  ],
+  "layout": "4panel",
+  "position": [
+   30060.0,
+   9840.0,
+   12166.0
+  ],
+  "selectedLayer": {
+   "layer": "neurons",
+   "visible": true
+  }
+ },
+ "batch_url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%7B%22type%22:%22image%22,%22name%22:%22image%22,%22source%22:%22zarr://s3://bucket/image.zarr%22%7D,%7B%22type%22:%22segmentation%22,%22name%22:%22neurons%22,%22source%22:%22precomputed://s3://bucket/run/skeletons%22,%22segments%22:%5B%221%22,%222%22,%223%22,%224%22,%225%22%5D,%22skeletonRendering%22:%7B%22shader%22:%22void%20main()%20%7B%5Cn%20%20if%20(n_flags%20%3E%200.5)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%200.0,%200.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitDefault();%5Cn%20%20%7D%5Cn%7D%5Cn%22,%22mode2d%22:%22lines_and_points%22,%22mode3d%22:%22lines%22%7D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22branch_max_degree%22,%22source%22:%22precomputed://s3://bucket/run/annotations/branch_max_degree%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ffff00%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22edge_length%22,%22source%22:%22precomputed://s3://bucket/run/annotations/edge_length%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#00ffff%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22soma_child_distance%22,%22source%22:%22precomputed://s3://bucket/run/annotations/soma_child_distance%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ff00ff%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22axon_origination%22,%22source%22:%22precomputed://s3://bucket/run/annotations/axon_origination%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ff8000%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22local_tortuosity%22,%22source%22:%22precomputed://s3://bucket/run/annotations/local_tortuosity%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#00ff80%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22valid_parent_references%22,%22source%22:%22precomputed://s3://bucket/run/annotations/valid_parent_references%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#8080ff%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22single_root_node%22,%22source%22:%22precomputed://s3://bucket/run/annotations/single_root_node%22,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ff0080%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D,%22filterBySegmentation%22:%5B%22neuron%22%5D%7D%5D,%22layout%22:%224panel%22,%22position%22:%5B30060.0,9840.0,12166.0%5D,%22selectedLayer%22:%7B%22layer%22:%22neurons%22,%22visible%22:true%7D%7D",
+ "neurons": [
+  {
+   "segment_id": 1,
+   "label": "N024-648434-CONSENSUS",
+   "state": {
+    "dimensions": {
+     "x": [
+      7.48e-07,
+      "m"
+     ],
+     "y": [
+      7.48e-07,
+      "m"
+     ],
+     "z": [
+      1e-06,
+      "m"
+     ]
+    },
+    "layers": [
+     {
+      "type": "segmentation",
+      "name": "neurons",
+      "source": "precomputed://s3://bucket/run/skeletons",
+      "segments": [
+       "1"
+      ],
+      "skeletonRendering": {
+       "shader": "void main() {\n  if (n_flags > 0.5) {\n    emitRGB(vec3(1.0, 0.0, 0.0));\n  } else {\n    emitDefault();\n  }\n}\n",
+       "mode2d": "lines_and_points",
+       "mode3d": "lines"
+      }
+     },
+     {
+      "type": "annotation",
+      "name": "qc_errors",
+      "source": {
+       "url": "local://annotations",
+       "transform": {
+        "outputDimensions": {
+         "x": [
+          7.48e-07,
+          "m"
+         ],
+         "y": [
+          7.48e-07,
+          "m"
+         ],
+         "z": [
+          1e-06,
+          "m"
+         ]
+        }
+       }
+      },
+      "tab": "annotations",
+      "annotationColor": "#ffff00",
+      "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+      "annotationProperties": [
+       {
+        "id": "node_id",
+        "type": "uint32"
+       },
+       {
+        "id": "status",
+        "type": "uint8",
+        "enum_values": [
+         0,
+         1,
+         2
+        ],
+        "enum_labels": [
+         "fail",
+         "review",
+         "error"
+        ]
+       },
+       {
+        "id": "metric",
+        "type": "uint16",
+        "enum_values": [
+         0,
+         1,
+         2,
+         3,
+         4
+        ],
+        "enum_labels": [
+         "branch_max_degree",
+         "edge_length",
+         "soma_child_distance",
+         "axon_origination",
+         "local_tortuosity"
+        ]
+       }
+      ],
+      "annotations": [
+       {
+        "type": "point",
+        "id": "branch_max_degree-68",
+        "point": [
+         30060.0,
+         9840.0,
+         12166.0
+        ],
+        "description": "branch_max_degree \u00b7 review \u00b7 node 68",
+        "props": [
+         68,
+         1,
+         0
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-128",
+        "point": [
+         25249.0,
+         10830.0,
+         12619.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 128",
+        "props": [
+         128,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-150",
+        "point": [
+         22489.0,
+         15351.0,
+         10948.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 150",
+        "props": [
+         150,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-228",
+        "point": [
+         12734.0,
+         17455.0,
+         11515.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 228",
+        "props": [
+         228,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-232",
+        "point": [
+         10940.0,
+         17025.0,
+         10531.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 232",
+        "props": [
+         232,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-234",
+        "point": [
+         10348.0,
+         16689.0,
+         10080.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 234",
+        "props": [
+         234,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-628",
+        "point": [
+         3316.0,
+         15526.0,
+         10717.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 628",
+        "props": [
+         628,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-753",
+        "point": [
+         16940.0,
+         12216.0,
+         13218.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 753",
+        "props": [
+         753,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-760",
+        "point": [
+         17859.0,
+         10744.0,
+         13145.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 760",
+        "props": [
+         760,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-761",
+        "point": [
+         18141.0,
+         10199.0,
+         13145.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 761",
+        "props": [
+         761,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-764",
+        "point": [
+         18598.0,
+         9246.0,
+         13050.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 764",
+        "props": [
+         764,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-2529",
+        "point": [
+         16123.0,
+         17498.0,
+         7272.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 2529",
+        "props": [
+         2529,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-2532",
+        "point": [
+         17768.0,
+         17552.0,
+         6716.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 2532",
+        "props": [
+         2532,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "edge_length-2854",
+        "point": [
+         11346.0,
+         15078.0,
+         10931.0
+        ],
+        "description": "edge_length \u00b7 fail \u00b7 node 2854",
+        "props": [
+         2854,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "soma_child_distance-2",
+        "point": [
+         30112.0,
+         9770.0,
+         12210.0
+        ],
+        "description": "soma_child_distance \u00b7 fail \u00b7 node 2",
+        "props": [
+         2,
+         0,
+         2
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "soma_child_distance-19",
+        "point": [
+         30156.0,
+         9768.0,
+         12140.0
+        ],
+        "description": "soma_child_distance \u00b7 fail \u00b7 node 19",
+        "props": [
+         19,
+         0,
+         2
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "soma_child_distance-61",
+        "point": [
+         30082.0,
+         9821.0,
+         12218.0
+        ],
+        "description": "soma_child_distance \u00b7 fail \u00b7 node 61",
+        "props": [
+         61,
+         0,
+         2
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "soma_child_distance-68",
+        "point": [
+         30060.0,
+         9840.0,
+         12166.0
+        ],
+        "description": "soma_child_distance \u00b7 fail \u00b7 node 68",
+        "props": [
+         68,
+         0,
+         2
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "axon_origination-93",
+        "point": [
+         30060.0,
+         9835.0,
+         12166.0
+        ],
+        "description": "axon_origination \u00b7 fail \u00b7 node 93",
+        "props": [
+         93,
+         0,
+         3
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "local_tortuosity-302",
+        "point": [
+         5258.0,
+         13851.0,
+         10457.0
+        ],
+        "description": "local_tortuosity \u00b7 fail \u00b7 node 302",
+        "props": [
+         302,
+         0,
+         4
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "local_tortuosity-429",
+        "point": [
+         6071.0,
+         15098.0,
+         10228.0
+        ],
+        "description": "local_tortuosity \u00b7 fail \u00b7 node 429",
+        "props": [
+         429,
+         0,
+         4
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "local_tortuosity-1383",
+        "point": [
+         8369.0,
+         16689.0,
+         9262.0
+        ],
+        "description": "local_tortuosity \u00b7 fail \u00b7 node 1383",
+        "props": [
+         1383,
+         0,
+         4
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "local_tortuosity-1735",
+        "point": [
+         7950.0,
+         17154.0,
+         9728.0
+        ],
+        "description": "local_tortuosity \u00b7 fail \u00b7 node 1735",
+        "props": [
+         1735,
+         0,
+         4
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "local_tortuosity-2949",
+        "point": [
+         15022.0,
+         16189.0,
+         10102.0
+        ],
+        "description": "local_tortuosity \u00b7 fail \u00b7 node 2949",
+        "props": [
+         2949,
+         0,
+         4
+        ],
+        "segments": [
+         [
+          "1"
+         ]
+        ]
+       }
+      ],
+      "annotationRelationships": [
+       "neuron"
+      ],
+      "linkedSegmentationLayer": {
+       "neuron": "neurons"
+      }
+     }
+    ],
+    "layout": "4panel",
+    "position": [
+     30060.0,
+     9840.0,
+     12166.0
+    ],
+    "selectedLayer": {
+     "layer": "qc_errors",
+     "visible": true
+    }
+   },
+   "url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%7B%22type%22:%22segmentation%22,%22name%22:%22neurons%22,%22source%22:%22precomputed://s3://bucket/run/skeletons%22,%22segments%22:%5B%221%22%5D,%22skeletonRendering%22:%7B%22shader%22:%22void%20main()%20%7B%5Cn%20%20if%20(n_flags%20%3E%200.5)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%200.0,%200.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitDefault();%5Cn%20%20%7D%5Cn%7D%5Cn%22,%22mode2d%22:%22lines_and_points%22,%22mode3d%22:%22lines%22%7D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22qc_errors%22,%22source%22:%7B%22url%22:%22local://annotations%22,%22transform%22:%7B%22outputDimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D%7D%7D,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ffff00%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22annotationProperties%22:%5B%7B%22id%22:%22node_id%22,%22type%22:%22uint32%22%7D,%7B%22id%22:%22status%22,%22type%22:%22uint8%22,%22enum_values%22:%5B0,1,2%5D,%22enum_labels%22:%5B%22fail%22,%22review%22,%22error%22%5D%7D,%7B%22id%22:%22metric%22,%22type%22:%22uint16%22,%22enum_values%22:%5B0,1,2,3,4%5D,%22enum_labels%22:%5B%22branch_max_degree%22,%22edge_length%22,%22soma_child_distance%22,%22axon_origination%22,%22local_tortuosity%22%5D%7D%5D,%22annotations%22:%5B%7B%22type%22:%22point%22,%22id%22:%22branch_max_degree-68%22,%22point%22:%5B30060.0,9840.0,12166.0%5D,%22description%22:%22branch_max_degree%20%5Cu00b7%20review%20%5Cu00b7%20node%2068%22,%22props%22:%5B68,1,0%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-128%22,%22point%22:%5B25249.0,10830.0,12619.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20128%22,%22props%22:%5B128,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-150%22,%22point%22:%5B22489.0,15351.0,10948.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20150%22,%22props%22:%5B150,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-228%22,%22point%22:%5B12734.0,17455.0,11515.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20228%22,%22props%22:%5B228,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-232%22,%22point%22:%5B10940.0,17025.0,10531.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20232%22,%22props%22:%5B232,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-234%22,%22point%22:%5B10348.0,16689.0,10080.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20234%22,%22props%22:%5B234,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-628%22,%22point%22:%5B3316.0,15526.0,10717.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20628%22,%22props%22:%5B628,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-753%22,%22point%22:%5B16940.0,12216.0,13218.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20753%22,%22props%22:%5B753,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-760%22,%22point%22:%5B17859.0,10744.0,13145.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20760%22,%22props%22:%5B760,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-761%22,%22point%22:%5B18141.0,10199.0,13145.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20761%22,%22props%22:%5B761,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-764%22,%22point%22:%5B18598.0,9246.0,13050.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%20764%22,%22props%22:%5B764,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-2529%22,%22point%22:%5B16123.0,17498.0,7272.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%202529%22,%22props%22:%5B2529,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-2532%22,%22point%22:%5B17768.0,17552.0,6716.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%202532%22,%22props%22:%5B2532,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22edge_length-2854%22,%22point%22:%5B11346.0,15078.0,10931.0%5D,%22description%22:%22edge_length%20%5Cu00b7%20fail%20%5Cu00b7%20node%202854%22,%22props%22:%5B2854,0,1%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22soma_child_distance-2%22,%22point%22:%5B30112.0,9770.0,12210.0%5D,%22description%22:%22soma_child_distance%20%5Cu00b7%20fail%20%5Cu00b7%20node%202%22,%22props%22:%5B2,0,2%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22soma_child_distance-19%22,%22point%22:%5B30156.0,9768.0,12140.0%5D,%22description%22:%22soma_child_distance%20%5Cu00b7%20fail%20%5Cu00b7%20node%2019%22,%22props%22:%5B19,0,2%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22soma_child_distance-61%22,%22point%22:%5B30082.0,9821.0,12218.0%5D,%22description%22:%22soma_child_distance%20%5Cu00b7%20fail%20%5Cu00b7%20node%2061%22,%22props%22:%5B61,0,2%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22soma_child_distance-68%22,%22point%22:%5B30060.0,9840.0,12166.0%5D,%22description%22:%22soma_child_distance%20%5Cu00b7%20fail%20%5Cu00b7%20node%2068%22,%22props%22:%5B68,0,2%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22axon_origination-93%22,%22point%22:%5B30060.0,9835.0,12166.0%5D,%22description%22:%22axon_origination%20%5Cu00b7%20fail%20%5Cu00b7%20node%2093%22,%22props%22:%5B93,0,3%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22local_tortuosity-302%22,%22point%22:%5B5258.0,13851.0,10457.0%5D,%22description%22:%22local_tortuosity%20%5Cu00b7%20fail%20%5Cu00b7%20node%20302%22,%22props%22:%5B302,0,4%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22local_tortuosity-429%22,%22point%22:%5B6071.0,15098.0,10228.0%5D,%22description%22:%22local_tortuosity%20%5Cu00b7%20fail%20%5Cu00b7%20node%20429%22,%22props%22:%5B429,0,4%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22local_tortuosity-1383%22,%22point%22:%5B8369.0,16689.0,9262.0%5D,%22description%22:%22local_tortuosity%20%5Cu00b7%20fail%20%5Cu00b7%20node%201383%22,%22props%22:%5B1383,0,4%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22local_tortuosity-1735%22,%22point%22:%5B7950.0,17154.0,9728.0%5D,%22description%22:%22local_tortuosity%20%5Cu00b7%20fail%20%5Cu00b7%20node%201735%22,%22props%22:%5B1735,0,4%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22local_tortuosity-2949%22,%22point%22:%5B15022.0,16189.0,10102.0%5D,%22description%22:%22local_tortuosity%20%5Cu00b7%20fail%20%5Cu00b7%20node%202949%22,%22props%22:%5B2949,0,4%5D,%22segments%22:%5B%5B%221%22%5D%5D%7D%5D,%22annotationRelationships%22:%5B%22neuron%22%5D,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D%7D%5D,%22layout%22:%224panel%22,%22position%22:%5B30060.0,9840.0,12166.0%5D,%22selectedLayer%22:%7B%22layer%22:%22qc_errors%22,%22visible%22:true%7D%7D"
+  },
+  {
+   "segment_id": 2,
+   "label": "dangling_parent",
+   "state": {
+    "dimensions": {
+     "x": [
+      7.48e-07,
+      "m"
+     ],
+     "y": [
+      7.48e-07,
+      "m"
+     ],
+     "z": [
+      1e-06,
+      "m"
+     ]
+    },
+    "layers": [
+     {
+      "type": "segmentation",
+      "name": "neurons",
+      "source": "precomputed://s3://bucket/run/skeletons",
+      "segments": [
+       "2"
+      ],
+      "skeletonRendering": {
+       "shader": "void main() {\n  if (n_flags > 0.5) {\n    emitRGB(vec3(1.0, 0.0, 0.0));\n  } else {\n    emitDefault();\n  }\n}\n",
+       "mode2d": "lines_and_points",
+       "mode3d": "lines"
+      }
+     },
+     {
+      "type": "annotation",
+      "name": "qc_errors",
+      "source": {
+       "url": "local://annotations",
+       "transform": {
+        "outputDimensions": {
+         "x": [
+          7.48e-07,
+          "m"
+         ],
+         "y": [
+          7.48e-07,
+          "m"
+         ],
+         "z": [
+          1e-06,
+          "m"
+         ]
+        }
+       }
+      },
+      "tab": "annotations",
+      "annotationColor": "#ffff00",
+      "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+      "annotationProperties": [
+       {
+        "id": "node_id",
+        "type": "uint32"
+       },
+       {
+        "id": "status",
+        "type": "uint8",
+        "enum_values": [
+         0,
+         1,
+         2
+        ],
+        "enum_labels": [
+         "fail",
+         "review",
+         "error"
+        ]
+       },
+       {
+        "id": "metric",
+        "type": "uint16",
+        "enum_values": [
+         0
+        ],
+        "enum_labels": [
+         "valid_parent_references"
+        ]
+       }
+      ],
+      "annotations": [
+       {
+        "type": "point",
+        "id": "valid_parent_references-6",
+        "point": [
+         1.0,
+         2.0,
+         3.0
+        ],
+        "description": "valid_parent_references \u00b7 fail \u00b7 node 6",
+        "props": [
+         6,
+         0,
+         0
+        ],
+        "segments": [
+         [
+          "2"
+         ]
+        ]
+       }
+      ],
+      "annotationRelationships": [
+       "neuron"
+      ],
+      "linkedSegmentationLayer": {
+       "neuron": "neurons"
+      }
+     }
+    ],
+    "layout": "4panel",
+    "position": [
+     1.0,
+     2.0,
+     3.0
+    ],
+    "selectedLayer": {
+     "layer": "qc_errors",
+     "visible": true
+    }
+   },
+   "url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%7B%22type%22:%22segmentation%22,%22name%22:%22neurons%22,%22source%22:%22precomputed://s3://bucket/run/skeletons%22,%22segments%22:%5B%222%22%5D,%22skeletonRendering%22:%7B%22shader%22:%22void%20main()%20%7B%5Cn%20%20if%20(n_flags%20%3E%200.5)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%200.0,%200.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitDefault();%5Cn%20%20%7D%5Cn%7D%5Cn%22,%22mode2d%22:%22lines_and_points%22,%22mode3d%22:%22lines%22%7D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22qc_errors%22,%22source%22:%7B%22url%22:%22local://annotations%22,%22transform%22:%7B%22outputDimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D%7D%7D,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ffff00%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22annotationProperties%22:%5B%7B%22id%22:%22node_id%22,%22type%22:%22uint32%22%7D,%7B%22id%22:%22status%22,%22type%22:%22uint8%22,%22enum_values%22:%5B0,1,2%5D,%22enum_labels%22:%5B%22fail%22,%22review%22,%22error%22%5D%7D,%7B%22id%22:%22metric%22,%22type%22:%22uint16%22,%22enum_values%22:%5B0%5D,%22enum_labels%22:%5B%22valid_parent_references%22%5D%7D%5D,%22annotations%22:%5B%7B%22type%22:%22point%22,%22id%22:%22valid_parent_references-6%22,%22point%22:%5B1.0,2.0,3.0%5D,%22description%22:%22valid_parent_references%20%5Cu00b7%20fail%20%5Cu00b7%20node%206%22,%22props%22:%5B6,0,0%5D,%22segments%22:%5B%5B%222%22%5D%5D%7D%5D,%22annotationRelationships%22:%5B%22neuron%22%5D,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D%7D%5D,%22layout%22:%224panel%22,%22position%22:%5B1.0,2.0,3.0%5D,%22selectedLayer%22:%7B%22layer%22:%22qc_errors%22,%22visible%22:true%7D%7D"
+  },
+  {
+   "segment_id": 3,
+   "label": "long_edge",
+   "state": {
+    "dimensions": {
+     "x": [
+      7.48e-07,
+      "m"
+     ],
+     "y": [
+      7.48e-07,
+      "m"
+     ],
+     "z": [
+      1e-06,
+      "m"
+     ]
+    },
+    "layers": [
+     {
+      "type": "segmentation",
+      "name": "neurons",
+      "source": "precomputed://s3://bucket/run/skeletons",
+      "segments": [
+       "3"
+      ],
+      "skeletonRendering": {
+       "shader": "void main() {\n  if (n_flags > 0.5) {\n    emitRGB(vec3(1.0, 0.0, 0.0));\n  } else {\n    emitDefault();\n  }\n}\n",
+       "mode2d": "lines_and_points",
+       "mode3d": "lines"
+      }
+     },
+     {
+      "type": "annotation",
+      "name": "qc_errors",
+      "source": {
+       "url": "local://annotations",
+       "transform": {
+        "outputDimensions": {
+         "x": [
+          7.48e-07,
+          "m"
+         ],
+         "y": [
+          7.48e-07,
+          "m"
+         ],
+         "z": [
+          1e-06,
+          "m"
+         ]
+        }
+       }
+      },
+      "tab": "annotations",
+      "annotationColor": "#ffff00",
+      "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+      "annotationProperties": [
+       {
+        "id": "node_id",
+        "type": "uint32"
+       },
+       {
+        "id": "status",
+        "type": "uint8",
+        "enum_values": [
+         0,
+         1,
+         2
+        ],
+        "enum_labels": [
+         "fail",
+         "review",
+         "error"
+        ]
+       },
+       {
+        "id": "metric",
+        "type": "uint16",
+        "enum_values": [
+         0,
+         1
+        ],
+        "enum_labels": [
+         "soma_child_distance",
+         "axon_origination"
+        ]
+       }
+      ],
+      "annotations": [
+       {
+        "type": "point",
+        "id": "soma_child_distance-2",
+        "point": [
+         10.0,
+         0.0,
+         0.0
+        ],
+        "description": "soma_child_distance \u00b7 fail \u00b7 node 2",
+        "props": [
+         2,
+         0,
+         0
+        ],
+        "segments": [
+         [
+          "3"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "axon_origination-2",
+        "point": [
+         10.0,
+         0.0,
+         0.0
+        ],
+        "description": "axon_origination \u00b7 fail \u00b7 node 2",
+        "props": [
+         2,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "3"
+         ]
+        ]
+       }
+      ],
+      "annotationRelationships": [
+       "neuron"
+      ],
+      "linkedSegmentationLayer": {
+       "neuron": "neurons"
+      }
+     }
+    ],
+    "layout": "4panel",
+    "position": [
+     10.0,
+     0.0,
+     0.0
+    ],
+    "selectedLayer": {
+     "layer": "qc_errors",
+     "visible": true
+    }
+   },
+   "url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%7B%22type%22:%22segmentation%22,%22name%22:%22neurons%22,%22source%22:%22precomputed://s3://bucket/run/skeletons%22,%22segments%22:%5B%223%22%5D,%22skeletonRendering%22:%7B%22shader%22:%22void%20main()%20%7B%5Cn%20%20if%20(n_flags%20%3E%200.5)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%200.0,%200.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitDefault();%5Cn%20%20%7D%5Cn%7D%5Cn%22,%22mode2d%22:%22lines_and_points%22,%22mode3d%22:%22lines%22%7D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22qc_errors%22,%22source%22:%7B%22url%22:%22local://annotations%22,%22transform%22:%7B%22outputDimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D%7D%7D,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ffff00%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22annotationProperties%22:%5B%7B%22id%22:%22node_id%22,%22type%22:%22uint32%22%7D,%7B%22id%22:%22status%22,%22type%22:%22uint8%22,%22enum_values%22:%5B0,1,2%5D,%22enum_labels%22:%5B%22fail%22,%22review%22,%22error%22%5D%7D,%7B%22id%22:%22metric%22,%22type%22:%22uint16%22,%22enum_values%22:%5B0,1%5D,%22enum_labels%22:%5B%22soma_child_distance%22,%22axon_origination%22%5D%7D%5D,%22annotations%22:%5B%7B%22type%22:%22point%22,%22id%22:%22soma_child_distance-2%22,%22point%22:%5B10.0,0.0,0.0%5D,%22description%22:%22soma_child_distance%20%5Cu00b7%20fail%20%5Cu00b7%20node%202%22,%22props%22:%5B2,0,0%5D,%22segments%22:%5B%5B%223%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22axon_origination-2%22,%22point%22:%5B10.0,0.0,0.0%5D,%22description%22:%22axon_origination%20%5Cu00b7%20fail%20%5Cu00b7%20node%202%22,%22props%22:%5B2,0,1%5D,%22segments%22:%5B%5B%223%22%5D%5D%7D%5D,%22annotationRelationships%22:%5B%22neuron%22%5D,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D%7D%5D,%22layout%22:%224panel%22,%22position%22:%5B10.0,0.0,0.0%5D,%22selectedLayer%22:%7B%22layer%22:%22qc_errors%22,%22visible%22:true%7D%7D"
+  },
+  {
+   "segment_id": 4,
+   "label": "noncontiguous",
+   "state": {
+    "dimensions": {
+     "x": [
+      7.48e-07,
+      "m"
+     ],
+     "y": [
+      7.48e-07,
+      "m"
+     ],
+     "z": [
+      1e-06,
+      "m"
+     ]
+    },
+    "layers": [
+     {
+      "type": "segmentation",
+      "name": "neurons",
+      "source": "precomputed://s3://bucket/run/skeletons",
+      "segments": [
+       "4"
+      ],
+      "skeletonRendering": {
+       "shader": "void main() {\n  if (n_flags > 0.5) {\n    emitRGB(vec3(1.0, 0.0, 0.0));\n  } else {\n    emitDefault();\n  }\n}\n",
+       "mode2d": "lines_and_points",
+       "mode3d": "lines"
+      }
+     },
+     {
+      "type": "annotation",
+      "name": "qc_errors",
+      "source": {
+       "url": "local://annotations",
+       "transform": {
+        "outputDimensions": {
+         "x": [
+          7.48e-07,
+          "m"
+         ],
+         "y": [
+          7.48e-07,
+          "m"
+         ],
+         "z": [
+          1e-06,
+          "m"
+         ]
+        }
+       }
+      },
+      "tab": "annotations",
+      "annotationColor": "#ffff00",
+      "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+      "annotationProperties": [
+       {
+        "id": "node_id",
+        "type": "uint32"
+       },
+       {
+        "id": "status",
+        "type": "uint8",
+        "enum_values": [
+         0,
+         1,
+         2
+        ],
+        "enum_labels": [
+         "fail",
+         "review",
+         "error"
+        ]
+       },
+       {
+        "id": "metric",
+        "type": "uint16",
+        "enum_values": [
+         0
+        ],
+        "enum_labels": [
+         "single_root_node"
+        ]
+       }
+      ],
+      "annotations": [
+       {
+        "type": "point",
+        "id": "single_root_node-10",
+        "point": [
+         5.0,
+         6.0,
+         7.0
+        ],
+        "description": "single_root_node \u00b7 fail \u00b7 node 10",
+        "props": [
+         10,
+         0,
+         0
+        ],
+        "segments": [
+         [
+          "4"
+         ]
+        ]
+       }
+      ],
+      "annotationRelationships": [
+       "neuron"
+      ],
+      "linkedSegmentationLayer": {
+       "neuron": "neurons"
+      }
+     }
+    ],
+    "layout": "4panel",
+    "position": [
+     5.0,
+     6.0,
+     7.0
+    ],
+    "selectedLayer": {
+     "layer": "qc_errors",
+     "visible": true
+    }
+   },
+   "url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%7B%22type%22:%22segmentation%22,%22name%22:%22neurons%22,%22source%22:%22precomputed://s3://bucket/run/skeletons%22,%22segments%22:%5B%224%22%5D,%22skeletonRendering%22:%7B%22shader%22:%22void%20main()%20%7B%5Cn%20%20if%20(n_flags%20%3E%200.5)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%200.0,%200.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitDefault();%5Cn%20%20%7D%5Cn%7D%5Cn%22,%22mode2d%22:%22lines_and_points%22,%22mode3d%22:%22lines%22%7D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22qc_errors%22,%22source%22:%7B%22url%22:%22local://annotations%22,%22transform%22:%7B%22outputDimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D%7D%7D,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ffff00%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22annotationProperties%22:%5B%7B%22id%22:%22node_id%22,%22type%22:%22uint32%22%7D,%7B%22id%22:%22status%22,%22type%22:%22uint8%22,%22enum_values%22:%5B0,1,2%5D,%22enum_labels%22:%5B%22fail%22,%22review%22,%22error%22%5D%7D,%7B%22id%22:%22metric%22,%22type%22:%22uint16%22,%22enum_values%22:%5B0%5D,%22enum_labels%22:%5B%22single_root_node%22%5D%7D%5D,%22annotations%22:%5B%7B%22type%22:%22point%22,%22id%22:%22single_root_node-10%22,%22point%22:%5B5.0,6.0,7.0%5D,%22description%22:%22single_root_node%20%5Cu00b7%20fail%20%5Cu00b7%20node%2010%22,%22props%22:%5B10,0,0%5D,%22segments%22:%5B%5B%224%22%5D%5D%7D%5D,%22annotationRelationships%22:%5B%22neuron%22%5D,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D%7D%5D,%22layout%22:%224panel%22,%22position%22:%5B5.0,6.0,7.0%5D,%22selectedLayer%22:%7B%22layer%22:%22qc_errors%22,%22visible%22:true%7D%7D"
+  },
+  {
+   "segment_id": 5,
+   "label": "test_horta_swc",
+   "state": {
+    "dimensions": {
+     "x": [
+      7.48e-07,
+      "m"
+     ],
+     "y": [
+      7.48e-07,
+      "m"
+     ],
+     "z": [
+      1e-06,
+      "m"
+     ]
+    },
+    "layers": [
+     {
+      "type": "segmentation",
+      "name": "neurons",
+      "source": "precomputed://s3://bucket/run/skeletons",
+      "segments": [
+       "5"
+      ],
+      "skeletonRendering": {
+       "shader": "void main() {\n  if (n_flags > 0.5) {\n    emitRGB(vec3(1.0, 0.0, 0.0));\n  } else {\n    emitDefault();\n  }\n}\n",
+       "mode2d": "lines_and_points",
+       "mode3d": "lines"
+      }
+     },
+     {
+      "type": "annotation",
+      "name": "qc_errors",
+      "source": {
+       "url": "local://annotations",
+       "transform": {
+        "outputDimensions": {
+         "x": [
+          7.48e-07,
+          "m"
+         ],
+         "y": [
+          7.48e-07,
+          "m"
+         ],
+         "z": [
+          1e-06,
+          "m"
+         ]
+        }
+       }
+      },
+      "tab": "annotations",
+      "annotationColor": "#ffff00",
+      "shader": "void main() {\n  setColor(defaultColor());\n  setPointMarkerSize(10.0);\n}\n",
+      "annotationProperties": [
+       {
+        "id": "node_id",
+        "type": "uint32"
+       },
+       {
+        "id": "status",
+        "type": "uint8",
+        "enum_values": [
+         0,
+         1,
+         2
+        ],
+        "enum_labels": [
+         "fail",
+         "review",
+         "error"
+        ]
+       },
+       {
+        "id": "metric",
+        "type": "uint16",
+        "enum_values": [
+         0,
+         1
+        ],
+        "enum_labels": [
+         "soma_child_distance",
+         "axon_origination"
+        ]
+       }
+      ],
+      "annotations": [
+       {
+        "type": "point",
+        "id": "soma_child_distance-2",
+        "point": [
+         60.0,
+         60.0,
+         60.0
+        ],
+        "description": "soma_child_distance \u00b7 fail \u00b7 node 2",
+        "props": [
+         2,
+         0,
+         0
+        ],
+        "segments": [
+         [
+          "5"
+         ]
+        ]
+       },
+       {
+        "type": "point",
+        "id": "axon_origination-2",
+        "point": [
+         60.0,
+         60.0,
+         60.0
+        ],
+        "description": "axon_origination \u00b7 fail \u00b7 node 2",
+        "props": [
+         2,
+         0,
+         1
+        ],
+        "segments": [
+         [
+          "5"
+         ]
+        ]
+       }
+      ],
+      "annotationRelationships": [
+       "neuron"
+      ],
+      "linkedSegmentationLayer": {
+       "neuron": "neurons"
+      }
+     }
+    ],
+    "layout": "4panel",
+    "position": [
+     60.0,
+     60.0,
+     60.0
+    ],
+    "selectedLayer": {
+     "layer": "qc_errors",
+     "visible": true
+    }
+   },
+   "url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%7B%22type%22:%22segmentation%22,%22name%22:%22neurons%22,%22source%22:%22precomputed://s3://bucket/run/skeletons%22,%22segments%22:%5B%225%22%5D,%22skeletonRendering%22:%7B%22shader%22:%22void%20main()%20%7B%5Cn%20%20if%20(n_flags%20%3E%200.5)%20%7B%5Cn%20%20%20%20emitRGB(vec3(1.0,%200.0,%200.0));%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20emitDefault();%5Cn%20%20%7D%5Cn%7D%5Cn%22,%22mode2d%22:%22lines_and_points%22,%22mode3d%22:%22lines%22%7D%7D,%7B%22type%22:%22annotation%22,%22name%22:%22qc_errors%22,%22source%22:%7B%22url%22:%22local://annotations%22,%22transform%22:%7B%22outputDimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D%7D%7D,%22tab%22:%22annotations%22,%22annotationColor%22:%22#ffff00%22,%22shader%22:%22void%20main()%20%7B%5Cn%20%20setColor(defaultColor());%5Cn%20%20setPointMarkerSize(10.0);%5Cn%7D%5Cn%22,%22annotationProperties%22:%5B%7B%22id%22:%22node_id%22,%22type%22:%22uint32%22%7D,%7B%22id%22:%22status%22,%22type%22:%22uint8%22,%22enum_values%22:%5B0,1,2%5D,%22enum_labels%22:%5B%22fail%22,%22review%22,%22error%22%5D%7D,%7B%22id%22:%22metric%22,%22type%22:%22uint16%22,%22enum_values%22:%5B0,1%5D,%22enum_labels%22:%5B%22soma_child_distance%22,%22axon_origination%22%5D%7D%5D,%22annotations%22:%5B%7B%22type%22:%22point%22,%22id%22:%22soma_child_distance-2%22,%22point%22:%5B60.0,60.0,60.0%5D,%22description%22:%22soma_child_distance%20%5Cu00b7%20fail%20%5Cu00b7%20node%202%22,%22props%22:%5B2,0,0%5D,%22segments%22:%5B%5B%225%22%5D%5D%7D,%7B%22type%22:%22point%22,%22id%22:%22axon_origination-2%22,%22point%22:%5B60.0,60.0,60.0%5D,%22description%22:%22axon_origination%20%5Cu00b7%20fail%20%5Cu00b7%20node%202%22,%22props%22:%5B2,0,1%5D,%22segments%22:%5B%5B%225%22%5D%5D%7D%5D,%22annotationRelationships%22:%5B%22neuron%22%5D,%22linkedSegmentationLayer%22:%7B%22neuron%22:%22neurons%22%7D%7D%5D,%22layout%22:%224panel%22,%22position%22:%5B60.0,60.0,60.0%5D,%22selectedLayer%22:%7B%22layer%22:%22qc_errors%22,%22visible%22:true%7D%7D"
+  },
+  {
+   "segment_id": 6,
+   "label": "unbuildable",
+   "state": {
+    "dimensions": {
+     "x": [
+      7.48e-07,
+      "m"
+     ],
+     "y": [
+      7.48e-07,
+      "m"
+     ],
+     "z": [
+      1e-06,
+      "m"
+     ]
+    },
+    "layers": [],
+    "layout": "4panel"
+   },
+   "url": "https://neuroglancer.example.org/#!%7B%22dimensions%22:%7B%22x%22:%5B7.48e-07,%22m%22%5D,%22y%22:%5B7.48e-07,%22m%22%5D,%22z%22:%5B1e-06,%22m%22%5D%7D,%22layers%22:%5B%5D,%22layout%22:%224panel%22%7D"
+  }
+ ]
+}

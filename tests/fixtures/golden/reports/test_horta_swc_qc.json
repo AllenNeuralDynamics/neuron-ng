@@ -1,0 +1,389 @@
+{
+ "schema_version": "1.2",
+ "standard_morph_version": "1.0.1",
+ "generated_at": "2026-10-12T18:19:55.904860+00:00",
+ "space": "image_space",
+ "morphology_kind": "merged",
+ "ccf_resolution": 10,
+ "policy_version": "golden",
+ "suite_name": null,
+ "requested_metrics": [
+  "single_root_node",
+  "soma_first_node",
+  "single_connected_component",
+  "branch_max_degree",
+  "edge_length",
+  "soma_child_distance",
+  "axon_origination",
+  "local_tortuosity"
+ ],
+ "input_ref": "swcs/test_horta_swc.swc",
+ "policy_thresholds": {
+  "required_columns": {},
+  "non_empty": {},
+  "castable_columns": {},
+  "unique_node_ids": {},
+  "valid_parent_references": {},
+  "acyclic": {},
+  "single_root_node": {},
+  "soma_first_node": {},
+  "single_connected_component": {},
+  "branch_max_degree": {
+   "max_children": 2
+  },
+  "edge_length": {
+   "max_length_um": 600.0
+  },
+  "soma_child_distance": {
+   "max_soma_child_to_soma_um": 5.0
+  },
+  "axon_origination": {
+   "max_axon_origin_to_soma_um": 5.0
+  },
+  "local_tortuosity": {
+   "tortuosity_threshold": 3.0
+  }
+ },
+ "integrity_results": [
+  {
+   "name": "required_columns",
+   "status": "pass",
+   "message": "All required SWC columns are present.",
+   "value": 0,
+   "value_label": "n_missing_columns",
+   "thresholds_used": {},
+   "measurements": {
+    "required_columns": [
+     "node_id",
+     "compartment",
+     "x",
+     "y",
+     "z",
+     "r",
+     "parent"
+    ],
+    "present_columns": [
+     "node_id",
+     "compartment",
+     "x",
+     "y",
+     "z",
+     "r",
+     "parent"
+    ],
+    "missing_columns": []
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_missing_columns": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.015293999695131788
+  },
+  {
+   "name": "non_empty",
+   "status": "pass",
+   "message": "SWC table has 3 node(s).",
+   "value": 3,
+   "value_label": "n_rows",
+   "thresholds_used": {},
+   "measurements": {
+    "n_rows": 3
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_rows": 3
+   },
+   "artifacts": [],
+   "runtime_ms": 0.004462000106286723
+  },
+  {
+   "name": "castable_columns",
+   "status": "pass",
+   "message": "All column values cast cleanly to their required types.",
+   "value": 0,
+   "value_label": "n_uncastable_values",
+   "thresholds_used": {},
+   "measurements": {
+    "problems_by_column": {},
+    "n_uncastable_values": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_uncastable_values": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 2.2954199998821423
+  },
+  {
+   "name": "unique_node_ids",
+   "status": "pass",
+   "message": "All node ids are unique.",
+   "value": 0,
+   "value_label": "n_duplicate_ids",
+   "thresholds_used": {},
+   "measurements": {
+    "duplicate_ids": [],
+    "n_duplicate_ids": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_duplicate_ids": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.3634490003605606
+  },
+  {
+   "name": "valid_parent_references",
+   "status": "pass",
+   "message": "All parent ids reference an existing node.",
+   "value": 0,
+   "value_label": "n_dangling_parents",
+   "thresholds_used": {},
+   "measurements": {
+    "n_dangling_parents": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_dangling_parents": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.16231099971264484
+  },
+  {
+   "name": "acyclic",
+   "status": "pass",
+   "message": "Parent chain is acyclic.",
+   "value": 0,
+   "value_label": "n_cyclic_nodes",
+   "thresholds_used": {},
+   "measurements": {
+    "n_cyclic_nodes": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_cyclic_nodes": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.12501499986683484
+  }
+ ],
+ "results": [
+  {
+   "name": "single_root_node",
+   "status": "pass",
+   "message": "Single valid root: one soma-type root, node_id 1.",
+   "value": 1,
+   "value_label": "n_roots",
+   "thresholds_used": {},
+   "measurements": {
+    "n_soma_roots": 1,
+    "n_roots": 1,
+    "n_type1_nodes": 1
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_roots": 1,
+    "n_type1_nodes": 1,
+    "n_flagged": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.03216300001440686
+  },
+  {
+   "name": "soma_first_node",
+   "status": "pass",
+   "message": "First node (id 1) is the soma.",
+   "value": true,
+   "value_label": "soma_is_first_node",
+   "thresholds_used": {},
+   "measurements": {
+    "first_node_id": 1,
+    "first_node_compartment": 1,
+    "soma_is_first_node": true
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {},
+   "artifacts": [],
+   "runtime_ms": 0.006176000169944018
+  },
+  {
+   "name": "single_connected_component",
+   "status": "pass",
+   "message": "Reconstruction is a single connected component.",
+   "value": 1,
+   "value_label": "n_components",
+   "thresholds_used": {},
+   "measurements": {
+    "n_components": 1,
+    "n_roots": 1,
+    "n_orphans": 0
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_components": 1,
+    "n_roots": 1,
+    "n_orphans": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.07422499993481324
+  },
+  {
+   "name": "branch_max_degree",
+   "status": "pass",
+   "message": "No branch points exceed 2 children.",
+   "value": 1,
+   "value_label": "max_children_observed",
+   "thresholds_used": {
+    "max_children": 2
+   },
+   "measurements": {
+    "max_children_observed": 1
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_flagged": 0
+   },
+   "artifacts": [],
+   "runtime_ms": 0.029119999908289174
+  },
+  {
+   "name": "edge_length",
+   "status": "pass",
+   "message": "All 1 edge(s) within 600.0 um.",
+   "value": 0.0,
+   "value_label": "fraction_edges_over_threshold",
+   "thresholds_used": {
+    "max_length_um": 600.0,
+    "space": "image_space"
+   },
+   "measurements": {
+    "n_edges": 1,
+    "n_over": 0,
+    "fraction_over": 0.0,
+    "max_edge_length": 17.320508075688775
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_over": 0,
+    "n_edges": 1
+   },
+   "artifacts": [],
+   "runtime_ms": 0.13178499966670643
+  },
+  {
+   "name": "soma_child_distance",
+   "status": "fail",
+   "message": "1/1 soma child(ren) farther than 5.0 um (max 17.3 um).",
+   "value": 17.320508075688775,
+   "value_label": "max_soma_child_distance_um",
+   "thresholds_used": {
+    "max_soma_child_to_soma_um": 5.0
+   },
+   "measurements": {
+    "n_soma_children": 1,
+    "n_over": 1,
+    "max_soma_child_distance_um": 17.320508075688775,
+    "soma_child_distances": [
+     17.320508075688775
+    ]
+   },
+   "flagged_node_ids": [
+    2
+   ],
+   "flagged_node_coordinates": [
+    [
+     60.0,
+     60.0,
+     60.0
+    ]
+   ],
+   "counts": {
+    "n_soma_children": 1,
+    "n_over": 1
+   },
+   "artifacts": [],
+   "runtime_ms": 0.10388200007582782
+  },
+  {
+   "name": "axon_origination",
+   "status": "fail",
+   "message": "axon origination is 17.3 um from the soma, exceeds 5.0 um",
+   "value": 17.320508075688775,
+   "value_label": "axon_origin_distance_to_soma_um",
+   "thresholds_used": {
+    "max_axon_origin_to_soma_um": 5.0
+   },
+   "measurements": {
+    "n_axon_origins": 1,
+    "origin_distances_to_soma_um": [
+     17.320508075688775
+    ]
+   },
+   "flagged_node_ids": [
+    2
+   ],
+   "flagged_node_coordinates": [
+    [
+     60.0,
+     60.0,
+     60.0
+    ]
+   ],
+   "counts": {
+    "n_axon_origins": 1,
+    "n_flagged": 1
+   },
+   "artifacts": [],
+   "runtime_ms": 0.06475600002886495
+  },
+  {
+   "name": "local_tortuosity",
+   "status": "pass",
+   "message": "All 1 evaluated node(s) within tortuosity threshold 3.0.",
+   "value": 1.0,
+   "value_label": "max_tortuosity",
+   "thresholds_used": {
+    "tortuosity_threshold": 3.0
+   },
+   "measurements": {
+    "n_evaluated": 1,
+    "max_tortuosity": 1.0,
+    "mean_tortuosity": 1.0,
+    "flagged_tortuosities": []
+   },
+   "flagged_node_ids": [],
+   "flagged_node_coordinates": [],
+   "counts": {
+    "n_flagged": 0,
+    "n_evaluated": 1
+   },
+   "artifacts": [],
+   "runtime_ms": 0.10707199999160366
+  }
+ ],
+ "morphology_evaluated": true,
+ "summary": {
+  "n_metrics": 8,
+  "n_pass": 6,
+  "n_fail": 2,
+  "n_review": 0,
+  "n_error": 0,
+  "n_skipped": 0,
+  "overall_status": "fail"
+ },
+ "runtime_ms": 6.789782999931049,
+ "integrity_ok": true,
+ "passed": false
+}
